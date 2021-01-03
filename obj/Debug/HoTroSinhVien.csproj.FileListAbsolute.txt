@@ -54,3 +54,7 @@ F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.csproj.CoreCompileInputs.cache
 F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.csproj.CopyComplete
 F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.dll
 F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.pdb
+F:\html\HoTroSinhVien\bin\EntityFramework.dll
+F:\html\HoTroSinhVien\bin\EntityFramework.SqlServer.dll
+F:\html\HoTroSinhVien\bin\EntityFramework.xml
+F:\html\HoTroSinhVien\bin\EntityFramework.SqlServer.xml

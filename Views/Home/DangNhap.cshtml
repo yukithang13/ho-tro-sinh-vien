@@ -1,0 +1,26 @@
+﻿@model HoTroSinhVien.Models.DangNhap
+@using (Html.BeginForm("DangNhap", "Home", FormMethod.Post))
+{
+    <h2> Đăng nhập tài khoản</h2>
+    
+        <form>
+            <fieldset class="form-group">
+                <label for="formGroup1">Tên tài khoản</label>
+                @Html.TextBoxFor(m => m.TaiKhoan, null, new { @class = "form-control", @placeholder = "Tài khoản" })
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="formGroup1">Mật Khẩu</label>
+                @Html.TextBoxFor(m => m.MatKhau, null, new { @class = "form-control", @placeholder = "Mật khẩu" })
+            </fieldset>
+
+            <fieldset class="form-group">
+                <button type="submit" class="btn">Đăng Nhập</button>
+            </fieldset>
+
+            <fieldset class="form-group">
+                 @ViewBag.Message
+            </fieldset>
+        </form>
+    
+}

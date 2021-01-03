@@ -17,5 +17,11 @@ namespace HoTroSinhVien
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Session_Start()
+        {
+            Session["ab_taikhoan"] = "";
+            Session["ab_matkhau"] = "";
+        }
     }
 }
