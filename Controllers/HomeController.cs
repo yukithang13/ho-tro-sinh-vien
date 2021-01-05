@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using System.Xml.Linq;
 using HoTroSinhVien.Models;
 
@@ -49,7 +50,7 @@ namespace HoTroSinhVien.Controllers // MENU
             
             if (ModelState.IsValid)
             {
-                ViewBag.Message = null;
+                ViewBag.Message = "";
                 var ab_dangnhap = DB.DangNhaps.Where(s => s.TaiKhoan.Equals(Taikhoan) && s.MatKhau.Equals(Matkhau)).ToList();
                
                 if (ab_dangnhap.Count() > 0)
@@ -60,7 +61,7 @@ namespace HoTroSinhVien.Controllers // MENU
                 }
                 else
                 {
-                    ViewBag.Message = "";
+                    ViewBag.Message = "Sai";
                 }
             }
             else
@@ -81,29 +82,32 @@ namespace HoTroSinhVien.Controllers // MENU
         }
 
 
-        public ActionResult DangKi(DangNhap _user)
+        public ActionResult DangKi(DangNhap _user)  
         {
-            if (ModelState.IsValid)
-            {
-                var check = DB.DangNhaps.FirstOrDefault(s => s.TaiKhoan == _user.TaiKhoan);
-                if (check == null)
+            
+                
+            
+                if (ModelState.IsValid)
                 {
-                    DB.DangNhaps.Add(_user);
-                    DB.SaveChanges();
-                    return RedirectToAction("DangNhap");
+                    var check = DB.DangNhaps.FirstOrDefault(m => m.TaiKhoan == _user.TaiKhoan);               
+                    if (check == null)
+                    {
+                        DB.DangNhaps.Add(_user);
+                        DB.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ViewBag.error = "Tai khoản này đã trùng";
+                        return View();
+                    }
                 }
-                else
-                {
-                    ViewBag.error = "Tai khoản này đã trùng";
-                    return View();
-                }
-            }
             return View();
-
-
         }
 
-
-
+       
     }
+
+       
+    
 }
