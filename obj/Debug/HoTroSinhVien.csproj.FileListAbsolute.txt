@@ -49,7 +49,6 @@ F:\html\HoTroSinhVien\bin\System.Web.WebPages.Razor.xml
 F:\html\HoTroSinhVien\bin\Newtonsoft.Json.xml
 F:\html\HoTroSinhVien\bin\Antlr3.Runtime.pdb
 F:\html\HoTroSinhVien\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.csprojAssemblyReference.cache
 F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.csproj.CoreCompileInputs.cache
 F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.csproj.CopyComplete
 F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.dll
@@ -58,3 +57,4 @@ F:\html\HoTroSinhVien\bin\EntityFramework.dll
 F:\html\HoTroSinhVien\bin\EntityFramework.SqlServer.dll
 F:\html\HoTroSinhVien\bin\EntityFramework.xml
 F:\html\HoTroSinhVien\bin\EntityFramework.SqlServer.xml
+F:\html\HoTroSinhVien\obj\Debug\HoTroSinhVien.csprojAssemblyReference.cache

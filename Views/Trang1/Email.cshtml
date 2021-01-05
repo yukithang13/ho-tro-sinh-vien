@@ -1,0 +1,37 @@
+﻿@model HoTroSinhVien.Models.gmail
+
+
+
+
+
+        @using(Html.BeginForm("Email","Trang1", FormMethod.Post, new {enctype = "multipart/form-data" }))
+        {
+            <center>
+                <hr />
+                <table>
+                    <tr>
+                        <td style="width: 80px">
+                            To:
+                        </td>
+                        <td>@Html.TextBoxFor(m => m.To)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Subject:
+                        </td>
+                        <td>@Html.TextBoxFor(m => m.Subject)</td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            Body
+                        </td>
+                        <td>@Html.TextAreaFor(m => m.Body, new {rows = "15", cloms ="25" })</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Send" />
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        }

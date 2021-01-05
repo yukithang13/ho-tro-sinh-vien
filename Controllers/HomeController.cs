@@ -108,42 +108,30 @@ namespace HoTroSinhVien.Controllers // MENU
             return View();
         }
 
-        
-        public ActionResult SendMail(string receiver, string subject, string message)
+
+        public ActionResult Email()
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    var senderEmail = new MailAddress("yukthang0@gmail.com", "Thang"); // nguoi gui
-                    var receiverEmail = new MailAddress(receiver, "Receiver"); // nguoi nhan
-                    var password = "thang123t";
-                    var sub = subject;
-                    var body = message;
-                    var smtp = new SmtpClient
-                    {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        DeliveryMethod = SmtpDeliveryMethod.Network,
-                        UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential(senderEmail.Address, password)
-                    };
-                    using (var mess = new MailMessage(senderEmail, receiverEmail)
-                    {
-                        Subject = subject,
-                        Body = body
-                    })
-                    {
-                        smtp.Send(mess);
-                    }
-                    return View();
-                }
-            }
-            catch (Exception)
-            {
-                ViewBag.Error = "Some Error";
-            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Email(HoTroSinhVien.Models.gmail model)
+        {
+            MailMessage mm = new MailMessage("yukithang0@gmail.com", model.To);
+            mm.Subject = model.Subject;
+            mm.Body = model.Body;
+            mm.IsBodyHtml = false;
+
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+
+            NetworkCredential nc = new NetworkCredential("yukithang0@gmail.com", "thang123t");
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = nc;
+            smtp.Send(mm);
+
+            ViewBag.Message = "Successfully";
             return View();
         }
     }

@@ -1,0 +1,43 @@
+﻿@model HoTroSinhVien.Models.gmail
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Gmail</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Email", "EmailSetup", FormMethod.Post))
+        {
+            <center>
+                <hr />
+                <table>
+                    <tr>
+                        <td style="width: 80px">
+                            To:
+                        </td>
+                        <td>@Html.TextBoxFor(m => m.To)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Subject:
+                        </td>
+                        <td>@Html.TextBoxFor(m => m.Subject)</td>
+                    </tr>
+                    <tr>
+                        <td valign="top">
+                            Body
+                        </td>
+                        <td>@Html.TextAreaFor(m => m.Body, new { rows = "15", cloms = "25" })</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Send" />
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        }
+    </div>
+</body>
+</html>

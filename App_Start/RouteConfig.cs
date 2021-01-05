@@ -12,17 +12,24 @@ namespace HoTroSinhVien
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-           
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+
+            routes.MapRoute(
+                name: "Trang1",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Trang1", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "EmailSetup",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "EmailSetup", action = "Email", id = UrlParameter.Optional }
+            );
+
         }
     }
 }

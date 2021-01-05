@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmailSetupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Trang1Controller.cs" />
     <Compile Include="Global.asax.cs">
@@ -138,6 +139,7 @@
     <Compile Include="Models\DBContext.cs" />
     <Compile Include="Models\HocTap.cs" />
     <Compile Include="Models\HoiNhap.cs" />
+    <Compile Include="Models\Gmail.cs" />
     <Compile Include="Models\SinhVien.cs" />
     <Compile Include="Models\TheLuc.cs" />
     <Compile Include="Models\TinhNguyen.cs" />
@@ -177,7 +179,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\SendMail.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DangNhap.cshtml" />
     <Content Include="Views\Home\HoSo.cshtml" />
@@ -187,10 +188,12 @@
     <Content Include="Views\Trang1\Index.cshtml" />
     <Content Include="Views\Trang1\HoSo.cshtml" />
     <Content Include="Views\Trang1\DangXuat.cshtml" />
+    <Content Include="Views\Trang1\Email.cshtml" />
+    <Content Include="Views\EmailSetup\Email.cshtml" />
+    <Content Include="Views\Home\Email.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Send\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
