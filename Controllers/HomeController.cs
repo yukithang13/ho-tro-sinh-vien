@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -16,6 +17,7 @@ namespace HoTroSinhVien.Controllers // MENU
     public class HomeController : Controller
     {
         DBContext DB = new DBContext();
+       
 
         public ActionResult Index() // Trang chu
         {
@@ -33,6 +35,16 @@ namespace HoTroSinhVien.Controllers // MENU
         }
         public ActionResult HoSo() // Ho so
         {
+            var f = Request.Files["document"];
+            if(f != null && f.ContentLength > 0 )
+            {
+                var path = Server.MapPath("~/UploadFiles/" + f.FileName);
+                f.SaveAs(path);
+
+                ViewBag.FileName = f.FileName;
+                ViewBag.FileType = f.ContentType;
+                ViewBag.FileSie = f.ContentLength;
+            }    
             return View();
         }
 
@@ -85,19 +97,45 @@ namespace HoTroSinhVien.Controllers // MENU
         }
 
 
-        public ActionResult DangKi(DangNhap _user)  
+        /* public ActionResult DangKi(DangNhap _user)  
+         {
+
+
+
+                 if (ModelState.IsValid)
+                 {
+                     var check = DB.DangNhaps.FirstOrDefaultAsync(m => m.TaiKhoan == _user.TaiKhoan);               
+                     if (check == null)
+                     {
+                         DB.DangNhaps.Add(_user);
+                         DB.SaveChanges();
+                         return RedirectToAction("Index");
+                     }
+                     else
+                     {
+                         ViewBag.error = "Tai khoản này đã trùng";
+                         return View();
+                     }
+                 }
+             return View();
+         }*/
+
+
+        public ActionResult DangKi(DangNhap user)
         {
-            
-                
-            
+            try
+            {
                 if (ModelState.IsValid)
                 {
-                    var check = DB.DangNhaps.FirstOrDefault(m => m.TaiKhoan == _user.TaiKhoan);               
+                    var check = DB.DangNhaps.FirstOrDefault(m => m.TaiKhoan == user.TaiKhoan);
                     if (check == null)
                     {
-                        DB.DangNhaps.Add(_user);
+                        Session["TaiKhoan"] = DB.DangNhaps.FirstOrDefault().TaiKhoan;
+                        Session["MatKhau"] = DB.DangNhaps.FirstOrDefault().MatKhau;
+                        DB.DangNhaps.Add(user);
                         DB.SaveChanges();
-                        return RedirectToAction("Index");
+                        return RedirectToAction("DangNhap");
+
                     }
                     else
                     {
@@ -105,9 +143,13 @@ namespace HoTroSinhVien.Controllers // MENU
                         return View();
                     }
                 }
+            }
+            catch
+            {
+                ViewBag.error = "Tai khoản này đã trùng";
+            }
             return View();
         }
-
 
         public ActionResult Email()
         {
@@ -134,6 +176,10 @@ namespace HoTroSinhVien.Controllers // MENU
             ViewBag.Message = "Successfully";
             return View();
         }
+
+        
+
+
     }
 
        

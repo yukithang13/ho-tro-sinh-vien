@@ -17,12 +17,12 @@ namespace HoTroSinhVien.Controllers
             return View();
         }
 
-        public ActionResult Index() // Trang chu
+        public ActionResult Index1() // Trang chu
         {
             return View();
         }
 
-        public ActionResult About() // Huong dan
+        public ActionResult About1() // Huong dan
         {
             return View();
         }
@@ -33,6 +33,16 @@ namespace HoTroSinhVien.Controllers
         }
         public ActionResult HoSo() // Ho so
         {
+            var f = Request.Files["document"];
+            if (f != null && f.ContentLength > 0)
+            {
+                var path = Server.MapPath("~/UploadFiles/" + f.FileName);
+                f.SaveAs(path);
+
+                ViewBag.FileName = f.FileName;
+                ViewBag.FileType = f.ContentType;
+                ViewBag.FileSie = f.ContentLength;
+            }
             return View();
         }
 
