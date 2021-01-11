@@ -18,8 +18,8 @@ namespace HoTroSinhVien.Models
         [Key]
         public int MaHT { get; set; }
 
-        [MaxLength(100)]
-        public byte[] CuocThiHocTap { get; set; }
+        [StringLength(1)]
+        public string CuocThiHocTap { get; set; }
 
         public double? DiemTB { get; set; }
 

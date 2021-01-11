@@ -18,14 +18,14 @@ namespace HoTroSinhVien.Models
         [Key]
         public int MaTN { get; set; }
 
-        [MaxLength(100)]
-        public byte[] HoatDongTInhNguyen { get; set; }
+        [StringLength(150)]
+        public string HoatDongTInhNguyen { get; set; }
 
-        [MaxLength(100)]
-        public byte[] MuaHeXanh { get; set; }
+        [StringLength(150)]
+        public string MuaHeXanh { get; set; }
 
-        [MaxLength(100)]
-        public byte[] XuanTinhNguyen { get; set; }
+        [StringLength(150)]
+        public string XuanTinhNguyen { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SinhVien> SinhViens { get; set; }

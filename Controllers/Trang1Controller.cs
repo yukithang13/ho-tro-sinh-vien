@@ -27,11 +27,8 @@ namespace HoTroSinhVien.Controllers
             return View();
         }
 
-        public ActionResult Contact() // lien he
-        {
-            return View();
-        }
-        public ActionResult HoSo() // Ho so
+        
+        public ActionResult HoSo1() // Ho so
         {
             var f = Request.Files["document"];
             if (f != null && f.ContentLength > 0)
@@ -46,28 +43,8 @@ namespace HoTroSinhVien.Controllers
             return View();
         }
 
-       
-        [HttpPost]
-        public ActionResult Email(HoTroSinhVien.Models.gmail model)
-        {
-            MailMessage mm = new MailMessage("yukithang0@gmail.com", model.To);
-            mm.Subject = model.Subject;
-            mm.Body = model.Body;
-            mm.IsBodyHtml = false;
-
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-
-            NetworkCredential nc = new NetworkCredential("yukithang0@gmail.com", "thang123t");
-            smtp.UseDefaultCredentials = true;
-            smtp.Credentials = nc;
-            smtp.Send(mm);
-
-            ViewBag.Message = "Successfully";
-            return View();
-        }
         
+
+
     }
 }

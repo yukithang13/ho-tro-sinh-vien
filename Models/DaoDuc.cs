@@ -20,8 +20,8 @@ namespace HoTroSinhVien.Models
 
         public int? DiemRenLuyen { get; set; }
 
-        [MaxLength(100)]
-        public byte[] CuocThiDaoDuc { get; set; }
+        [StringLength(150)]
+        public string CuocThiDaoDuc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SinhVien> SinhViens { get; set; }

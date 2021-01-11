@@ -130,16 +130,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EmailSetupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Trang1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DangNhap.cs" />
     <Compile Include="Models\DaoDuc.cs" />
     <Compile Include="Models\DBContext.cs" />
+    <Compile Include="Models\Gmail.cs" />
     <Compile Include="Models\HocTap.cs" />
     <Compile Include="Models\HoiNhap.cs" />
-    <Compile Include="Models\Gmail.cs" />
     <Compile Include="Models\SinhVien.cs" />
     <Compile Include="Models\TheLuc.cs" />
     <Compile Include="Models\TinhNguyen.cs" />
@@ -181,20 +180,15 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\DangNhap.cshtml" />
-    <Content Include="Views\Trang1\Trang1.cshtml" />
     <Content Include="Views\Home\DangXuat.cshtml" />
-    <Content Include="Views\Trang1\Index.cshtml" />
-    <Content Include="Views\Trang1\HoSo.cshtml" />
-    <Content Include="Views\Trang1\DangXuat.cshtml" />
-    <Content Include="Views\Trang1\Email.cshtml" />
     <Content Include="Views\EmailSetup\Email.cshtml" />
-    <Content Include="Views\Home\Email.cshtml" />
-    <Content Include="Views\Home\HoSo.cshtml" />
-    <Content Include="Views\Trang1\About.cshtml" />
     <Content Include="Views\Home\DangKi.cshtml" />
+    <Content Include="Views\Home\HoSo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ImagChungChi\" />
+    <Folder Include="Content\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

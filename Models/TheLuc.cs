@@ -18,8 +18,8 @@ namespace HoTroSinhVien.Models
         [Key]
         public int MaTL { get; set; }
 
-        [MaxLength(100)]
-        public byte[] HoiThao { get; set; }
+        [StringLength(150)]
+        public string HoiThao { get; set; }
 
         public bool? DoiTuyenTDTT { get; set; }
 

@@ -19,12 +19,6 @@ namespace HoTroSinhVien
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional });
 
             routes.MapRoute(
-                name: "Trang1",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Trang1", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
                 name: "EmailSetup",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "EmailSetup", action = "Email", id = UrlParameter.Optional }

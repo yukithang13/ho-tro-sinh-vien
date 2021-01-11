@@ -20,8 +20,8 @@ namespace HoTroSinhVien
 
         protected void Session_Start()
         {
-            Session["ab_taikhoan"] = "";
-            Session["ab_matkhau"] = "";
+            Session["TaiKhoan"] = "";
+            Session["MatKhau"] = "";
         }
     }
 }

@@ -19,7 +19,8 @@ namespace HoTroSinhVien.Controllers
         [HttpPost]
         public ActionResult Email(HoTroSinhVien.Models.gmail model)
         {
-            MailMessage mm = new MailMessage("yukithang0@gmail.com", model.To);
+            
+            MailMessage mm = new MailMessage("yukithang0@gmail.com", model.To);           
             mm.Subject = model.Subject;
             mm.Body = model.Body;
             mm.IsBodyHtml = false;

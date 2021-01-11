@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title Hỗ trợ sinh viên 5 tốt</title>
+    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -17,23 +18,39 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+               
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Hướng dẫn", "About", "Home")</li>
-                    <li>@Html.ActionLink("Hồ sơ", "Hoso", "Home")</li>
-                    <li>@Html.ActionLink("Liên hệ", "Email", "Home")</li>
-                    <li>@Html.ActionLink("Đăng nhập", "DangNhap", "Home")</li>
-                    <li>@Html.ActionLink("Đăng kí", "DangKi", "Home")</li>
-                </ul>
-            </div>
+            @if (Session["ThanhCong"] != null)
+            {
+                var u = Session["ThanhCong"] as HoTroSinhVien.Models.DangNhap;
+                
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Hướng dẫn", "About", "Home")</li>
+                        <li>@Html.ActionLink("Hồ sơ", "HoSo", "Home")</li>
+                        <li>@Html.ActionLink("Liên hệ", "Email", "EmailSetup")</li>          
+                        <li class="navbar-brand">|Hello:@u.TaiKhoan|</li>
+                        <li>@Html.ActionLink("Đăng xuất", "DangXuat", "Home")</li>
+                    </ul>              
+            }
+            else
+            {   
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Hướng dẫn", "About", "Home")</li>
+                        <li>@Html.ActionLink("Hồ sơ", "HoSo", "Home")</li>
+                        <li>@Html.ActionLink("Liên hệ", "Email", "EmailSetup")</li>
+                        <li>@Html.ActionLink("Đăng nhập", "DangNhap", "Home")</li>
+                        <li>@Html.ActionLink("Đăng kí", "DangKi", "Home")</li>
+                    </ul>
+                </div>
+            }
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year </p>
         </footer>
     </div>
 

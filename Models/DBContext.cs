@@ -8,25 +8,20 @@ namespace HoTroSinhVien.Models
     public partial class DBContext : DbContext
     {
         public DBContext()
-            : base("name=DBContext1")
+            : base("name=DBContext")
         {
         }
 
-        public virtual DbSet<DangNhap> DangNhaps { get; set; }
         public virtual DbSet<DaoDuc> DaoDucs { get; set; }
         public virtual DbSet<HocTap> HocTaps { get; set; }
         public virtual DbSet<HoiNhap> HoiNhaps { get; set; }
         public virtual DbSet<SinhVien> SinhViens { get; set; }
         public virtual DbSet<TheLuc> TheLucs { get; set; }
         public virtual DbSet<TinhNguyen> TinhNguyens { get; set; }
+        public virtual DbSet<DangNhap> DangNhaps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DangNhap>()
-                .Property(e => e.TaiKhoan)
-                .IsFixedLength()
-                .IsUnicode(false);
-
             modelBuilder.Entity<DaoDuc>()
                 .HasMany(e => e.SinhViens)
                 .WithRequired(e => e.DaoDuc)
